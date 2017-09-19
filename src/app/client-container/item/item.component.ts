@@ -11,11 +11,12 @@ import { ShoppingCartDataService } from '../shopping-cart/shopping-cart-data.ser
 })
 export class ItemComponent implements OnInit {
 
- // public imgSrc = 'https://cdn.pizzahut.fr/website/var/tmp/image-thumbnails/0/1000/thumb__header_small/banner-produit--pepperoni-lovers4-.png';
+  // public imgSrc = 'https://cdn.pizzahut.fr/website/var/tmp/image-thumbnails/0/1000/thumb__header_small/banner-produit--pepperoni-lovers4-.png';
   public imgSrc = '../../../../assets/image/banner.png';
   items: Item[];
-  items_quantity: {item: Item, quantity: number}[] = [];
+  items_quantity: { item: Item, quantity: number }[] = [];
   categories: Category[];
+  categoryType = 'tous';
 
   constructor(private router: Router,
     private itemService: ItemService, public shoppingCartDataService: ShoppingCartDataService) { }
@@ -54,8 +55,8 @@ export class ItemComponent implements OnInit {
 
 
     //Remplissage du tableau utilisé par le composant
-    for(let i = 0; i < this.items.length; i++){
-      this.items_quantity.push({item: this.items[i], quantity: 1});
+    for (let i = 0; i < this.items.length; i++) {
+      this.items_quantity.push({ item: this.items[i], quantity: 1 });
     }
 
     //Test du service d'appel au Backend
@@ -66,6 +67,7 @@ export class ItemComponent implements OnInit {
     if (item_quantity.quantity < 10) {
       item_quantity.quantity++;
     }
+    console.log(this.categoryType)
   }
 
   minus(item_quantity: any) {
@@ -79,5 +81,7 @@ export class ItemComponent implements OnInit {
       this.shoppingCartDataService.addShoppingItem(item, quantity);
     }
   }
-
+  changeCategorie(item) {
+    this.categoryType = item.name;
+  }
 }

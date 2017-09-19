@@ -4,46 +4,48 @@
 <div class="container">
     <div class="sub-container">
         <div class=" flex-container " style="text-align:center;margin-bottom: 15px; margin-top:15px; ">
-            <div class="btn-group " data-toggle="buttons-radio " *ngFor="let cat of categories ">
-                <a href="# " type="button " class="btn btn-default ">{{cat.name}}</a>
+            <div class="btn-group " data-toggle="buttons">
+                <label *ngFor="let cat of categories " class="btn btn-default" (click)="changeCategorie(cat)">
+            <input type="radio" > {{cat.name}}
+        </label>
             </div>
         </div>
     </div>
     <app-shopping-cart class="shopping-cart" id="shopping-cart"></app-shopping-cart>
     <div class="sub-container">
         <div class="row">
-            <div *ngFor="let item_quantity of items_quantity " class=" .col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 container-card ">
-              <div class="card">
-                <div class="card-block">
-                  <h3 class="card-title">{{item_quantity.item.title}}</h3>
-                  <img class="card-img-top " src="{{item_quantity.item.picture}} "><br/>
+            <div *ngFor="let item_quantity of (items_quantity | categoryType : categoryType) " class=" .col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 container-card ">
+                <div class="card">
+                    <div class="card-block">
+                        <h3 class="card-title">{{item_quantity.item.title}}</h3>
+                        <img class="card-img-top " src="{{item_quantity.item.picture}} "><br/>
 
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <div class="input-group " style="width:60px; ">
-                  <span class="input-group-btn ">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="input-group " style="width:60px; ">
+                            <span class="input-group-btn ">
                   <button type="button" class="btn btn-default btn-number " (click)="minus(item_quantity)">
                   <span class="glyphicon glyphicon-minus "></span>
-                  </button>
-                  </span>
-                  <input type="number" class="form-control input-number " value="{{item_quantity.quantity}}" min="1" max="10" disabled>
-                  <span class="input-group-btn ">
+                            </button>
+                            </span>
+                            <input type="number" class="form-control input-number " value="{{item_quantity.quantity}}" min="1" max="10" disabled>
+                            <span class="input-group-btn ">
                   <button type="button" class="btn btn-default btn-number " data-type="plus" (click)="plus(item_quantity)" >
                   <span class="glyphicon glyphicon-plus "></span>
-                  </button>
-                  </span>
-                  </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <div class="left ">
-                    <p id="price " class="price">{{item_quantity.quantity * item_quantity.item.price}} €</p>
-                  </div>
-                  <div class="right " (click)="addToCart(item_quantity.item, item_quantity.quantity)">
-                      <button class="btn btn-default btnCart">
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="left ">
+                            <p id="price " class="price">{{item_quantity.quantity * item_quantity.item.price}} €</p>
+                        </div>
+                        <div class="right " (click)="addToCart(item_quantity.item, item_quantity.quantity)">
+                            <button class="btn btn-default btnCart">
                         <span class="glyphicon glyphicon-shopping-cart" width="20"></span>
                       </button>
-                  </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
     </div>

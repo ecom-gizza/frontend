@@ -40,18 +40,18 @@ export class Category {
 }
 
 export const PIZZAS: Item[] = [
-  new Item(1, 'Merguez', '', 10.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803100355053.jpg', TypeItem.PIZZA, 0),
-  new Item(2, 'Fromage de Chèvre', '', 11.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803111857372.jpg', TypeItem.PIZZA, 0),
-  new Item(3, 'Jambon-Fromage', '', 8, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803102147922.jpg', TypeItem.PIZZA, 0),
-  new Item(4, 'Mozza-Olives', '', 9, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803112458735.jpg', TypeItem.PIZZA, 0),
-  new Item(5, 'Margherita', '', 10.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201165922296.jpg', TypeItem.PIZZA, 0),
-  new Item(6, 'Funghi', '', 9.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201170042241.jpg', TypeItem.PIZZA, 0),
-  new Item(7, 'Capricciosa', '', 9.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20150824183029117.png', TypeItem.PIZZA, 0),
-  new Item(8, 'Quattro Stagioni', '', 8.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201165730305.jpg', TypeItem.PIZZA, 0),
-  new Item(9, 'Vegetariana', '', 10.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20160513105930770.jpg', TypeItem.PIZZA, 0),
-  new Item(10, 'Quattro Formaggi', '', 12, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201164929782.jpg', TypeItem.PIZZA, 0),
-  new Item(11, 'Marinara', '', 14, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803111857372.jpg', TypeItem.PIZZA, 0),
-  new Item(12, 'Peperoni', '', 11.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201165800417.jpg', TypeItem.PIZZA, 0)
+  new Item(1, 'Merguez', '', 10.5, 'Base barbecue', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803100355053.jpg', TypeItem.PIZZA, 0),
+  new Item(2, 'Fromage de Chèvre', '', 11.5, 'Base barbecue', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803111857372.jpg', TypeItem.PIZZA, 0),
+  new Item(3, 'Jambon-Fromage', '', 8, 'Base Crème Fraiche', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803102147922.jpg', TypeItem.PIZZA, 0),
+  new Item(4, 'Mozza-Olives', '', 9, 'base tomate', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803112458735.jpg', TypeItem.PIZZA, 0),
+  new Item(5, 'Margherita', '', 10.5, 'base tomate', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201165922296.jpg', TypeItem.PIZZA, 0),
+  new Item(6, 'Funghi', '', 9.5, 'Nouveau', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201170042241.jpg', TypeItem.PIZZA, 0),
+  new Item(7, 'Capricciosa', '', 9.5, 'Nouveau', 'https://cdn-catalog.pizzahut.fr/images/fr/20150824183029117.png', TypeItem.PIZZA, 0),
+  new Item(8, 'Quattro Stagioni', '', 8.5, 'Nouveau', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201165730305.jpg', TypeItem.PIZZA, 0),
+  new Item(9, 'Vegetariana', '', 10.5, 'Nouveau', 'https://cdn-catalog.pizzahut.fr/images/fr/20160513105930770.jpg', TypeItem.PIZZA, 0),
+  new Item(10, 'Quattro Formaggi', 'base tomate', 12, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201164929782.jpg', TypeItem.PIZZA, 0),
+  new Item(11, 'Marinara', '', 14, 'base tomate', 'https://cdn-catalog.pizzahut.fr/images/fr/20170803111857372.jpg', TypeItem.PIZZA, 0),
+  new Item(12, 'Peperoni', '', 11.5, 'base tomate', 'https://cdn-catalog.pizzahut.fr/images/fr/20141201165800417.jpg', TypeItem.PIZZA, 0)
 ];
 export const DESSERTS: Item[] = [
   new Item(13, 'Merguez', '', 10.5, '', 'https://cdn-catalog.pizzahut.fr/images/fr/20161007170256836.jpg', TypeItem.DESSERT, 10),
