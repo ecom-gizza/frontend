@@ -13,6 +13,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingCartDataService } from './shopping-cart/shopping-cart-data.service';
 import { ItemComponent } from './item/item.component';
 import { ItemService} from './item/item.service';
+// pipe
+import { CategoryTypePipe } from './pipes/category-type.pipe';
 
 @NgModule({
   imports: [
@@ -26,7 +28,8 @@ import { ItemService} from './item/item.service';
     ClientHomeComponent,
     CarouselComponent,
     ShoppingCartComponent,
-    ItemComponent],
+    ItemComponent,
+    CategoryTypePipe],
   providers: [
     ShoppingCartDataService,
     ItemService,
