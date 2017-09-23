@@ -13,21 +13,6 @@ export class ConnexionService {
   public token: string;
   public user;
   constructor(private http: Http, private userDataService: UserDataService) { }
-
-  /*authUser(pseudo: string, password: string) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-    const authInfo = { username: pseudo, password: password };
-    return this.http.post(gizzaBackEndAPIConfig.currentUser, JSON.stringify(authInfo), options).do((res: Response) => {
-      if (res) {
-        this.user = res.json();
-      }
-    }).catch(err => {
-      console.log('error:', err);
-      return Observable.of(false);
-    });
-  }*/
-
   authUser(username: string, password: string): Observable<boolean> {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
@@ -45,10 +30,8 @@ export class ConnexionService {
           this.token = token;
           const decode = JWT(token);
           console.log(token);
-
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
-
           // return true to indicate successful login
           return true;
         } else {

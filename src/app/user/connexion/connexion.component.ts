@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, AfterViewInit } from '@angular/core';
 import { UserDataService } from '../../core/user-data/user-data.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { RouterDataService } from '../../core/router-data/router-data.service';
@@ -9,7 +9,7 @@ import { ConnexionService } from './connexion.service';
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.css']
 })
-export class ConnexionComponent implements OnInit, OnDestroy {
+export class ConnexionComponent implements AfterViewInit, OnDestroy {
   loginInvalid: boolean;
 
   model = {
@@ -20,9 +20,6 @@ export class ConnexionComponent implements OnInit, OnDestroy {
   constructor(public userDataService: UserDataService,
     public routerDataService: RouterDataService,
     private router: Router, private connexionService: ConnexionService) { }
-
-  ngOnInit() {}
-
   ngAfterViewInit(): void {
     window.addEventListener('resize', this.resizeConnexionPage);
     this.resizeConnexionPage();

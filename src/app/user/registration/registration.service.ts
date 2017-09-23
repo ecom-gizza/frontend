@@ -6,6 +6,7 @@ import * as JWT from 'jwt-decode';
 import { UserDataService } from '../../core/user-data/user-data.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class RegistrationService {
@@ -47,16 +48,19 @@ export class RegistrationService {
           this.token = token;
           const decode = JWT(token);
           console.log(token);
-
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
-
           // return true to indicate successful login
           return true;
         } else {
           // return false to indicate failed login
           return false;
         }
-      });
+      })
+     .catch(e => {
+      if (e.status === 401) {
+          return Observable.throw('Unauthorized');
+      }
+    });
   }
 }
