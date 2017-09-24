@@ -33,4 +33,40 @@ export class AdminProductsComponent implements OnInit {
     this.categories.push(new Category(1, "All"));
   }
 
+  addPizza(id_categorie: number,nom: string,description: string,prix: string,url: string){
+    this.itemService.addPizza(id_categorie, nom, description, prix, url).subscribe();
+  }
+
+  updatePizza(){
+    this.itemService.updatePizza();
+  }
+
+  deletePizza(id: number){
+    this.itemService.deletePizza(id);
+  }
+
+  addBoisson(){
+    this.addBoisson();
+  }
+
+  updateBoisson(){
+    this.itemService.updateBoisson();
+  }
+
+  deleteBoisson(id: number){
+    this.itemService.deleteBoisson(id);
+  }
+
+  addDessert(){
+    this.addDessert();
+  }
+
+  updateDessert(){
+    this.itemService.updateDessert();
+  }
+
+  deleteDessert(id: number){
+    this.itemService.deleteDessert(id);
+  }
+
 }
