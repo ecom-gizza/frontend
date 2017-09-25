@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../client-container/item/item.service';
-import { Category, Item, PIZZACATEGORIES, PIZZAS, BOISSONS, DESSERTS, TypeItem } from '../../client-container/item/model';
+import {
+  Category, Item, PIZZACATEGORIES, PIZZAS, BOISSONS, DESSERTS, TypeItem,
+  Pizza
+} from '../../client-container/item/model';
 
 
 @Component({
@@ -16,7 +19,7 @@ export class AdminProductsComponent implements OnInit {
   constructor( private itemService: ItemService) { }
 
   ngOnInit() {
-    this.currentType = "pizzas"
+    this.currentType = "pizza"
   }
 
 
@@ -29,8 +32,8 @@ export class AdminProductsComponent implements OnInit {
           this.categories.push(new Category(data.item.data[i].id, data.item.data[i].libelle))
       }
     });
-    this.categories.push(new Category(0, "Tous"));
-    this.categories.push(new Category(1, "All"));
+    // this.categories.push(new Category(0, "Tous"));
+    // this.categories.push(new Category(1, "All"));
   }
 
   addPizza(id_categorie: number,nom: string,description: string,prix: string,url: string){
@@ -38,19 +41,19 @@ export class AdminProductsComponent implements OnInit {
   }
 
   updatePizza(){
-    this.itemService.updatePizza();
+    this.itemService.updatePizza(null);
   }
 
   deletePizza(id: number){
     this.itemService.deletePizza(id);
   }
 
-  addBoisson(){
-    this.addBoisson();
+  addBoisson(boisson){
+    this.addBoisson(null);
   }
 
   updateBoisson(){
-    this.itemService.updateBoisson();
+    this.itemService.updateBoisson(null);
   }
 
   deleteBoisson(id: number){
@@ -62,7 +65,7 @@ export class AdminProductsComponent implements OnInit {
   }
 
   updateDessert(){
-    this.itemService.updateDessert();
+    this.itemService.updateDessert(null);
   }
 
   deleteDessert(id: number){

@@ -16,7 +16,7 @@ export class Item {
     categoryId: number,
     picture: string,
     typeItem: TypeItem,
-    stock: number
+    stock: number,
   ) {
     this.id = id;
     this.title = title;
@@ -63,7 +63,7 @@ export const DESSERTS: Item[] = [
   new Item(13, 'Merguez', '', 10.5, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20161007170256836.jpg', TypeItem.DESSERT, 10),
   new Item(14, 'Fromage de Chèvre', '', 11.5, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20170317151535389.jpg', TypeItem.DESSERT, 10),
   new Item(15, 'Jambon-Fromage', '', 8, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20170616121837409.jpg', TypeItem.DESSERT, 10),
-  new Item(16, 'Mozza-Olives', '', 9, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20170616122257885.jpg', TypeItem.DESSERT, 10 ),
+  new Item(16, 'Mozza-Olives', '', 9, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20170616122257885.jpg', TypeItem.DESSERT, 10),
   new Item(17, 'Margherita', '', 10.5, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20150511161151615.png', TypeItem.DESSERT, 10),
   new Item(18, 'Funghi', '', 9.5, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20150511175221502.png', TypeItem.DESSERT, 10),
   new Item(19, 'Capricciosa', '', 9.5, 0, 'https://cdn-catalog.pizzahut.fr/images/fr/20170502155405035.jpg', TypeItem.DESSERT, 10),
@@ -90,3 +90,77 @@ export const PIZZACATEGORIES: Category[] = [
 ];
 
 
+export class Pizza {
+  public id: number;
+  public title: string;
+  public description: string;
+  public price: number;
+  public categoryId: number;
+  public picture: string;
+
+  constructor(
+    id: number,
+    title: string,
+    description: string,
+    price: number,
+    categoryId: number,
+    picture: string,
+  ) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.price = price;
+    this.categoryId = categoryId;
+    this.picture = picture;
+  }
+}
+
+export class Boisson {
+  public id: number;
+  public title: string;
+  public price: number;
+  public categoryId: number;
+  public picture: string;
+  public quantity: string;
+
+  constructor(
+    id: number,
+    title: string,
+    price: number,
+    categoryId: number,
+    picture: string,
+    quantity: string,
+  ) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+    this.categoryId = categoryId;
+    this.picture = picture;
+    this.quantity = quantity;
+  }
+}
+
+export class Dessert {
+  public id: number;
+  public title: string;
+  public price: number;
+  public categoryId: number;
+  public picture: string;
+  public nature: string;
+
+  constructor(
+    id: number,
+    title: string,
+    price: number,
+    categoryId: number,
+    picture: string,
+    nature: string,
+  ) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+    this.categoryId = categoryId;
+    this.picture = picture;
+    this.nature = nature;
+  }
+}
