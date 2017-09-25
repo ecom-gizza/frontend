@@ -19,7 +19,7 @@ export class AdminProductsComponent implements OnInit {
   constructor( private itemService: ItemService) { }
 
   ngOnInit() {
-    this.currentType = "pizza"
+    this.currentType = "pizza";
   }
 
 
@@ -32,8 +32,8 @@ export class AdminProductsComponent implements OnInit {
           this.categories.push(new Category(data.item.data[i].id, data.item.data[i].libelle))
       }
     });
-    // this.categories.push(new Category(0, "Tous"));
-    // this.categories.push(new Category(1, "All"));
+    this.categories.push(new Category(0, "Tous"));
+    this.categories.push(new Category(1, "All"));
   }
 
   addPizza(id_categorie: number,nom: string,description: string,prix: string,url: string){

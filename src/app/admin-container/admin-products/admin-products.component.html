@@ -10,11 +10,11 @@
   </div>
   <div class="sub-container list">
     <ul class="list-group" >
-      <!--<li class="list-group-item addProduct">-->
-        <!--<button type="button" class="btn btn-default addCat" data-toggle="modal" data-target="#myModal">-->
-          <!--Ajouter un produit-->
-        <!--</button>-->
-      <!--</li>-->
+      <li class="list-group-item addProduct">
+        <button type="button" class="btn btn-default addCat" data-toggle="modal" data-target="#myModal">
+          Ajouter un produit
+        </button>
+      </li>
       <li class="list-group-item products" *ngFor="let cat of categories">
         <div class="tableContainer">
           <div class="row">
@@ -76,7 +76,9 @@
           <div class="form-group row">
             <label class="control-label col-sm-2" for="category">Catégorie:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="category" placeholder="Catégorie">
+              <select class="form-control" id="category" placeholder="Catégorie" >
+                <option *ngFor="let camatt of categories; let i=index">{{camatt.libelle}}</option>
+              </select>
             </div>
           </div>
             <div class="form-group row">
