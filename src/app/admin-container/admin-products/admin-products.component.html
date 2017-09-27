@@ -2,7 +2,7 @@
   <div class="sub-container">
     <div class=" flex-container " style="text-align:center;margin-bottom: 15px; margin-top:15px; " >
       <div class="btn-group " data-toggle="buttons-radio ">
-        <a type="button" class="btn btn-default" (click)="getCategories('pizzas')" >PIZZAS</a>
+        <a type="button" class="btn btn-default" (click)="getCategories('pizza')" >PIZZAS</a>
         <a type="button" class="btn btn-default" (click)="getCategories('dessert')" >DESSERT</a>
         <a type="button" class="btn btn-default" (click)="getCategories('boisson')" >BOISSON</a>
       </div>
@@ -41,8 +41,8 @@
                 <tbody class="tableBody" *ngFor="let camatt of categories; let i=index">
                 <tr>
                   <td>{{(i+1)}}</td>
-                  <td>Some name</td>
-                  <td>Some description</td>
+                  <td>Pizza</td>
+                  <td>Delicious Pizza</td>
                   <td>10</td>
                   <td> <button type="button" class="btn btn-default edit" data-toggle="modal" data-target="#myModal">
                     <span class="glyphicon glyphicon-edit"></span>
@@ -76,7 +76,9 @@
           <div class="form-group row">
             <label class="control-label col-sm-2" for="category">Catégorie:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="category" placeholder="Catégorie">
+              <select class="form-control" id="category" placeholder="Catégorie" >
+                <option *ngFor="let camatt of categories; let i=index">{{camatt.libelle}}</option>
+              </select>
             </div>
           </div>
             <div class="form-group row">
@@ -85,13 +87,25 @@
               <input type="text" class="form-control" id="name" placeholder="Nom">
             </div>
             </div>
-              <div class="form-group row">
+            <div class="form-group row" *ngIf="currentType == 'pizza'">
             <label class="control-label col-sm-2" for="description">Description:</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="description" placeholder="Description">
             </div>
-              </div>
-                <div class="form-group row">
+            </div>
+          <div class="form-group row" *ngIf="currentType == 'boisson'">
+            <label class="control-label col-sm-2" for="quantity">Quantité:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="quantity" placeholder="33cl">
+            </div>
+          </div>
+          <div class="form-group row" *ngIf="currentType == 'dessert'">
+            <label class="control-label col-sm-2" for="nature">Nature:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nature" placeholder="Sucré">
+            </div>
+          </div>
+            <div class="form-group row">
             <label class="control-label col-sm-2" for="price">Prix:</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="price" placeholder="0-99">

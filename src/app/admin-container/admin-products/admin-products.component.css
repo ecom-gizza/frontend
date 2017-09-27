@@ -128,3 +128,6 @@ span.glyphicon.glyphicon-plus{
   background-color: transparent;
 }
 
+.form-control.category{
+  text-transform: uppercase;
+}
