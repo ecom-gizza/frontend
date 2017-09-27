@@ -25,11 +25,12 @@
 .btn-primary-outline {
     background-color: transparent;
     border-color: white;
+  font-family: Avenir;
 }
 
 .title {
-    font-family: 'Pacifico', cursive;
-    font-size: 100px;
+    font-family: Myriad;
+    font-size: 80px;
 }
 
 .info {
@@ -38,6 +39,7 @@
     font-size: 18px;
     max-width: 280px;
     padding: 10px;
+  font-family: Georgia;
     font-size: 18px;
 }
 
