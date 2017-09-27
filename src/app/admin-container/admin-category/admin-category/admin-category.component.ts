@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminCategoryService} from "../admin-category.service";
 import {Category} from "../../../client-container/model/model";
+import {ItemService} from "../../../client-container/service/item.service";
 
 
 @Component({
@@ -13,7 +14,7 @@ export class AdminCategoryComponent implements OnInit {
   categories: Category[] = [];
   currentType:string;
   selectedCategory:Category;
-  constructor( private categoryService: AdminCategoryService) { }
+  constructor( private itemService: ItemService, private categoryService: AdminCategoryService) { }
 
   ngOnInit() {
     this.currentType = "pizza"
@@ -21,17 +22,13 @@ export class AdminCategoryComponent implements OnInit {
 
 
   getCategories(type: string){
-    this.currentType = type;
-    this.categories.length = 0;
-    // this.categoryService.getCategoryByCategoryType(type).subscribe(data => {
-    //   for(let i = 0; i < data.item.data.length; i++){
-    //     if(data.item.data[i].type == type)
-    //       this.categories.push(new Category(data.item.data[i].id, data.item.data[i].libelle))
-    //   }
-    // });
-
-    this.categories.push(new Category(0, "Tous"));
-    this.categories.push(new Category(1, "All"));
+    this.itemService.getCategories().subscribe(data => {
+      for(let i = 0; i < data.res.data.length; i++){
+        if(data.res.data[i].type == type)
+          this.categories.push(new Category(data.res.data[i].id, data.res.data[i].libelle))
+      }
+    });
+   // this.categories.push(new Category(0, "Tous"))
   }
 
   deleteCategory(cat: Category){

@@ -20,18 +20,14 @@ export class AdminProductsComponent implements OnInit {
     this.currentType = "pizza";
   }
 
-
   getCategories(type: string){
-    this.currentType = type;
-    this.categories.length = 0;
     this.itemService.getCategories().subscribe(data => {
-      for(let i = 0; i < data.res.item.data.length; i++){
-        if(data.res.item.data[i].type == type)
-          this.categories.push(new Category(data.res.item.data[i].id, data.res.item.data[i].libelle))
+      for(let i = 0; i < data.res.data.length; i++){
+        if(data.res.data[i].type == type)
+          this.categories.push(new Category(data.res.data[i].id, data.res.data[i].libelle))
       }
     });
-    this.categories.push(new Category(0, "Tous"));
-    this.categories.push(new Category(1, "All"));
+    //this.categories.push(new Category(0, "Tous"))
   }
 
   addPizza(id_categorie: number,nom: string,description: string,prix: string,url: string){
