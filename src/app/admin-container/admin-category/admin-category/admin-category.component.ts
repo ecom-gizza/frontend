@@ -17,7 +17,8 @@ export class AdminCategoryComponent implements OnInit {
   constructor( private itemService: ItemService, private categoryService: AdminCategoryService) { }
 
   ngOnInit() {
-    this.currentType = "pizza"
+    this.currentType = "pizza";
+    this.getCategories(this.currentType);
   }
 
 
