@@ -12,7 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
-  quantity = [0.75, 1.5, 0.33, 1.5, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33];
+  quantity = [1.50, 0.33, 1.50, 1.5, 0.33, 0.50, 0.33, 0.33, 0.33, 0.75];
   // public imgSrc = 'https://cdn.pizzahut.fr/website/var/tmp/image-thumbnails/0/1000/thumb__header_small/banner-produit--pepperoni-lovers4-.png';
   public imgSrc = '../../../../assets/image/banner.png';
   items: Item[] = [];
