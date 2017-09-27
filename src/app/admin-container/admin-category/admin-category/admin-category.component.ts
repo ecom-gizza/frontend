@@ -24,9 +24,10 @@ export class AdminCategoryComponent implements OnInit {
 
   getCategories(type: string){
     this.categories.length = 0;
+    type = type.toUpperCase();
     this.itemService.getCategories().subscribe(data => {
       for(let i = 0; i < data.res.data.length; i++){
-        if(data.res.data[i].type == type)
+        if(data.res.data[i].type == type.toUpperCase())
           this.categories.push(new Category(data.res.data[i].id, data.res.data[i].libelle))
       }
     });
