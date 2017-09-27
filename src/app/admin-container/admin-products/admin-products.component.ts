@@ -18,9 +18,11 @@ export class AdminProductsComponent implements OnInit {
 
   ngOnInit() {
     this.currentType = "pizza";
+    this.getCategories(this.currentType);
   }
 
   getCategories(type: string){
+    this.categories.length = 0;
     this.itemService.getCategories().subscribe(data => {
       for(let i = 0; i < data.res.data.length; i++){
         if(data.res.data[i].type == type)
